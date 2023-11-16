@@ -12,5 +12,5 @@ void AStateContextDemonstrator::Tick(float DeltaTime)
 
 bool AStateContextDemonstrator::ShouldTickIfViewportsOnly() const
 {
-	return true;
+	return false;
 }

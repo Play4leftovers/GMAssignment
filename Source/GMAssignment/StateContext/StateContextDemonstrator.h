@@ -20,7 +20,7 @@ public:
 
 	virtual bool ShouldTickIfViewportsOnly() const override;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "State", meta = (Bitmask, BitmaskEnum = "/Script/GMAssignment.ERelativeContext"))
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Context", meta = (Bitmask, BitmaskEnum = "/Script/GMAssignment.ERelativeContext"))
 		int32 Context;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Context")

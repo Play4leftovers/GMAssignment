@@ -6,4 +6,4 @@ constexpr float GContextDirectionThreshold = .9f;
 constexpr float GContextHurtThreshold = .5f;
 constexpr float GContextDyingThreshold = .1f;
 
-const FVector GGravity = FVector(0,0,-9.8f);
+const FVector GGravity = FVector(0,0,-9.81f);
