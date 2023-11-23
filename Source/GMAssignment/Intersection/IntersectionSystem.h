@@ -3,25 +3,25 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ColliderComponent.h"
+#include "IntersectionComponent.h"
 #include "Subsystems/WorldSubsystem.h"
-#include "ColliderSystem.generated.h"
+#include "IntersectionSystem.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class GMASSIGNMENT_API UColliderSystem : public UTickableWorldSubsystem
+class GMASSIGNMENT_API UIntersectionSystem : public UTickableWorldSubsystem
 {
 	GENERATED_BODY()
 
 	UPROPERTY()
-	TArray<UColliderComponent*> ColliderComponents;
+	TArray<UIntersectionComponent*> IntersectionComponents;
 	
 public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 	virtual void Tick(float DeltaTime) override;
 	
-	void RegisterDemonstrator(UColliderComponent* Collider);
-	void UnregisterDemonstrator(UColliderComponent* Collider);
+	void RegisterIntersector(UIntersectionComponent* Intersector);
+	void UnregisterIntersector(UIntersectionComponent* Intersector);
 };

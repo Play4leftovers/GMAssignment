@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "ColliderComponent.generated.h"
+#include "IntersectionComponent.generated.h"
 
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
-class GMASSIGNMENT_API UColliderComponent : public UActorComponent
+class GMASSIGNMENT_API UIntersectionComponent : public UActorComponent
 {
 	GENERATED_BODY()
 public:
@@ -16,7 +16,7 @@ public:
 	float Radius;
 public:
 	// Sets default values for this component's properties
-	UColliderComponent();
+	UIntersectionComponent();
 
 protected:
 	// Called when the game starts
