@@ -24,4 +24,6 @@ public:
 	
 	void RegisterIntersector(UIntersectionComponent* Intersector);
 	void UnregisterIntersector(UIntersectionComponent* Intersector);
+	
+	virtual TStatId GetStatId() const override;
 };

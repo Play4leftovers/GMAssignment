@@ -14,6 +14,9 @@ class GMASSIGNMENT_API UIntersectionComponent : public UActorComponent
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Radius;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool IntersectingBoolean;
 public:
 	// Sets default values for this component's properties
 	UIntersectionComponent();
