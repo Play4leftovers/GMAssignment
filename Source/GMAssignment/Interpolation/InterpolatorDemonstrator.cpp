@@ -27,6 +27,7 @@ void AInterpolatorDemonstrator::Tick(float DeltaTime)
 	Time += DeltaTime;
 	Time = FMath::Clamp(Time, 0, Duration);
 	T = Time / Duration;
+	T = FMath::Abs(FMath::PerlinNoise1D(T)*2);
 	CurrentValue = Curve->FloatCurve.Eval(T);
 	
 	const auto MoveVector = FMath::Lerp(Origin, Goal, CurrentValue);

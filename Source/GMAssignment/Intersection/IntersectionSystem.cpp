@@ -11,6 +11,11 @@ void UIntersectionSystem::Initialize(FSubsystemCollectionBase& Collection)
 void UIntersectionSystem::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	for(const auto Intersector : IntersectionComponents)
+	{
+		Intersector->Drawn = false;
+	}
 	
 	for(const auto IntersectorA : IntersectionComponents)
 	{
@@ -51,5 +56,5 @@ void UIntersectionSystem::UnregisterIntersector(UIntersectionComponent* Intersec
 
 TStatId UIntersectionSystem::GetStatId() const
 {
-	return GetStatId();
+	return GetStatID();
 }

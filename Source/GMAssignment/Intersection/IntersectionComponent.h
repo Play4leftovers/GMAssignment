@@ -16,7 +16,7 @@ public:
 	float Radius;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	bool IntersectingBoolean;
+	bool Drawn;
 public:
 	// Sets default values for this component's properties
 	UIntersectionComponent();

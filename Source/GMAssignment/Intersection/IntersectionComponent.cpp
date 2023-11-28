@@ -2,20 +2,13 @@
 
 
 #include "IntersectionComponent.h"
-
 #include "IntersectionSystem.h"
 
 
 // Sets default values for this component's properties
 UIntersectionComponent::UIntersectionComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
-	PrimaryComponentTick.bStartWithTickEnabled = true;
-	// ...
 }
-
 
 // Called when the game starts
 void UIntersectionComponent::BeginPlay()
@@ -27,6 +20,17 @@ void UIntersectionComponent::BeginPlay()
 
 void UIntersectionComponent::DrawShape(const FColor Color)
 {
+	if(Drawn) return;
+	
+	Drawn = true;
+
+	if(Color == FColor::Green)
+		GetOwner()->SetActorHiddenInGame(true);
+	else
+	{
+		GetOwner()->SetActorHiddenInGame(false);
+	}
+	
 	DrawDebugSphere(
 			GetWorld(),
 			GetOwner()->GetActorLocation(),
