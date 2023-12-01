@@ -42,6 +42,7 @@ public:
 
 	void AddForce(const FVector& Force);
 	void Step(const float DeltaTime);
+	void AddImpulse(const FVector& Force);
 
 	float GetRadius() const;
 
@@ -57,4 +58,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	FVector Velocity;
+
+	UPROPERTY()
+	bool Impacted = false;
 };

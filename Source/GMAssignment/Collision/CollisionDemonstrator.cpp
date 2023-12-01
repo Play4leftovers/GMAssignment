@@ -64,6 +64,11 @@ void ACollisionDemonstrator::Step(const float DeltaTime)
 	Acceleration = FVector::ZeroVector;	
 }
 
+void ACollisionDemonstrator::AddImpulse(const FVector& Force)
+{
+	Velocity = Force;
+}
+
 float ACollisionDemonstrator::GetRadius() const
 {
 	return SphereComponent->GetScaledSphereRadius();

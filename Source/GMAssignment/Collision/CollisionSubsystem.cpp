@@ -46,19 +46,19 @@ void UCollisionSubsystem::Tick(float DeltaTime)
 			{
 				FVector ContactPoint;
 				
-				if(DemonstratorB->CollisionType == ECollisionType::SphereCollider)
-				{
-					if(UIntersectionUtility::SphereSphere(
-						DemonstratorA->GetActorLocation(),
-						DemonstratorA->GetRadius(),
-						DemonstratorB->GetActorLocation(),
-						DemonstratorB->GetRadius(),
-						ContactPoint))
-					{
-						DemonstratorA->AddForce(-DemonstratorA->Velocity * (1.f+DemonstratorA->Bounciness));
-						DrawDebugPoint(GetWorld(), ContactPoint, 25.f, FColor::Purple, false, 1.5f);
-					}
-				}
+				//if(DemonstratorB->CollisionType == ECollisionType::SphereCollider)
+				// {
+				// 	if(UIntersectionUtility::SphereSphere(
+				// 		DemonstratorA->GetActorLocation(),
+				// 		DemonstratorA->GetRadius(),
+				// 		DemonstratorB->GetActorLocation(),
+				// 		DemonstratorB->GetRadius(),
+				// 		ContactPoint))
+				// 	{
+				// 		DemonstratorA->AddForce(-DemonstratorA->Velocity * (1.f+DemonstratorA->Bounciness));
+				// 		DrawDebugPoint(GetWorld(), ContactPoint, 25.f, FColor::Purple, false, 1.5f);
+				// 	}
+				// }
 
 				if(DemonstratorB->CollisionType == ECollisionType::PlaneCollider)
 				{
@@ -69,8 +69,18 @@ void UCollisionSubsystem::Tick(float DeltaTime)
 						DemonstratorB->GetActorUpVector(),
 						ContactPoint))
 					{
-						DemonstratorA->AddForce(-DemonstratorA->Velocity * (1.f+DemonstratorA->Bounciness) - GGravity);
-						DrawDebugPoint(GetWorld(), ContactPoint, 25.f, FColor::Purple, false, 1.5f);
+						if(!DemonstratorA->Impacted)
+						{
+							DemonstratorA->AddForce(-DemonstratorA->Velocity * (1.f+DemonstratorA->Bounciness));
+							DemonstratorA->ApplyGravity = false;
+							DemonstratorA->Impacted = true;
+							DrawDebugPoint(GetWorld(), ContactPoint, 25.f, FColor::Purple, false, 1.5f);
+						}
+					}
+					else
+					{
+						DemonstratorA->ApplyGravity = true;
+						DemonstratorA->Impacted = false;
 					}
 				}
 			}
